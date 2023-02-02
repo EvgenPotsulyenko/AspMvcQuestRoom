@@ -1,0 +1,24 @@
+﻿@model AspMvcQuestRoom.Models.QuestRoom
+
+<<h2>Добавление квест-комнаты</h2>
+<form asp-action="CreateTab" asp-controller="home">
+    <p>
+        <label asp-for="Name">Название</label><br />
+        <input type="text" asp-for="Name"/>
+    </p>
+    <p>
+        <label asp-for="Difficult">Сложность</label><br />
+        <input type="text" asp-for="Difficult"/>
+    </p>
+    <p>
+        <label asp-for="Users">Количество пользователей</label><br />
+        <input type="text" asp-for="Users"/>
+    </p>
+    <p>
+        <label asp-for="Fear">Уровень страха</label><br />
+        <input type="text" asp-for="Fear"/>
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>

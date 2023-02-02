@@ -1,0 +1,16 @@
+﻿@model IEnumerable<AspMvcQuestRoom.Models.QuestRoom>
+
+<h2>Список комнат</h2>
+<p><a asp-action="Create">Добавить комнату</a></p>
+<table class="table">
+     <tr><th>Название</th><th>Сложность</th><th>Кол. пользователей</th><th>Уровень страха</th></tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Difficult</td>
+            <td>@item.Users</td>
+            <td>@item.Fear</td>
+        </tr>
+    }
+</table>
