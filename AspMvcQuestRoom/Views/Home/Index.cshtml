@@ -2,6 +2,8 @@
 
 <h2>Список комнат</h2>
 <p><a asp-action="Create">Добавить комнату</a></p>
+<p><a asp-action="Delete">Удалить комнату</a></p>
+<p><a asp-action="Edit">Редактировать комнату</a></p>
 <table class="table">
      <tr><th>Название</th><th>Сложность</th><th>Кол. пользователей</th><th>Уровень страха</th></tr>
     @foreach (var item in Model)

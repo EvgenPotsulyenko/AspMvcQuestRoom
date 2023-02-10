@@ -23,6 +23,15 @@ namespace AspMvcQuestRoom.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> Delete()
+        {
+            return View("Delete");
+        }
+        public async Task<IActionResult> Edit()
+        {
+            return View("Edit");
+        }
         public IActionResult Privacy()
         {
             return View();
@@ -31,6 +40,39 @@ namespace AspMvcQuestRoom.Controllers
         {
             db.QuestRooms.Add(room);
             await db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+        public async Task<IActionResult> DeleteTab(QuestRoom room)
+        {
+            var at = db.QuestRooms.ToList();
+            foreach (QuestRoom a in at)
+            {
+                if (a.Name == room.Name)
+                {
+                    db.QuestRooms.Remove(a);
+                    db.SaveChanges();
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> EditTab(QuestRoom room)
+        {
+            var at = db.QuestRooms.ToList();
+            foreach (QuestRoom a in at)
+            {
+                if (a.Name == room.Name & room.Difficult == null & room.Difficult == null & room.Users == null & room.Fear == null)
+                { 
+                    db.QuestRooms.Remove(a);
+                    await db.SaveChangesAsync();
+                    return View("Edit", a);                 
+                }
+                if (room.Name != null & room.Difficult != null & room.Users != null & room.Fear != null)
+                {              
+                    db.QuestRooms.Add(room);
+                    await db.SaveChangesAsync();
+                }
+            }
             return RedirectToAction("Index");
         }
 

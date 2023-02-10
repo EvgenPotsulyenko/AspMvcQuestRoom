@@ -1,0 +1,12 @@
+﻿@model AspMvcQuestRoom.Models.QuestRoom
+
+<<h2>Удаление квест-комнаты</h2>
+<form asp-action="DeleteTab" asp-controller="home">
+    <p>
+        <label asp-for="Name">Название</label><br />
+        <input type="text" asp-for="Name"/>
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
